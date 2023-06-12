@@ -3,28 +3,28 @@ import {
   View,
   Text,
   SafeAreaView,
-  FlatList,
-  ScrollView,
-  VirtualizedList,
-  ListRenderItemInfo,
-  ActivityIndicator,
+  Dimensions,
   Pressable,
+  ActivityIndicator,
+  FlatList,
+  ListRenderItemInfo,
+  ScrollView,
+  TouchableOpacity,
 } from "react-native";
-import { WebView } from "react-native-webview";
 import { styles } from "./expore.style";
+import { SwiperFlatList } from "react-native-swiper-flatlist";
 import { Image } from "@rneui/themed";
-import { getAllVideos } from "./expore.service";
-import { Vimeo } from "react-native-vimeo-iframe";
-import { Props } from "navigation/appNavigation";
-import CarouselCardItem, {
-  SLIDER_WIDTH,
-} from "../../components/carousel/carouselCardItem";
-import Carousel from "react-native-snap-carousel";
+import { useAppSelector } from "../../store/store";
+import { Button } from "@rneui/themed";
+import Carousel from "../../components/carousel/carousel";
 
 const ExploreScreen = ({ navigation }: any) => {
-  const [vimeoVideo, setVimeoVideo] = useState([]);
-  const isCarousel = React.useRef(null);
-  const [index, setIndex] = React.useState(0);
+  const { loading, paidVideos, freeVideos } = useAppSelector(
+    (state) => state.exploreVideo
+  );
+
+  const { width, height } = Dimensions.get("window");
+
   const videoCallbacks = {
     timeupdate: (data: any) => console.log("timeupdate: ", data),
     play: (data: any) => console.log("play: ", data),
@@ -34,72 +34,56 @@ const ExploreScreen = ({ navigation }: any) => {
     controlschange: (data: any) => console.log("controlschange: ", data),
   };
 
-  useEffect(() => {
-    renderAllVideos();
-  }, []);
-
-  const renderAllVideos = async () => {
-    let res = await getAllVideos();
-    res = res.map((item: any) => ({
-      id: item.id,
-      title: item.title,
-      is_free: item.is_free,
-      image: item.thumbnail.medium,
-      video_page: item?._links.video_page?.href,
-    }));
-    setVimeoVideo(res);
-  };
-
   return (
     <View style={styles.container}>
-      <SafeAreaView style={{ flex: 1 }}>
-        <View style={{ flex: 1 }}>
-          {/* <Carousel
-            layout="tinder"
-            layoutCardOffset={9}
-            ref={isCarousel}
-            data={vimeoVideo}
-            renderItem={CarouselCardItem}
-            sliderWidth={SLIDER_WIDTH}
-            itemWidth={SLIDER_WIDTH}
-            inactiveSlideShift={0}
-            useScrollView={true}
-            onSnapToItem={(index) => setIndex(index)}
-          /> */}
+      <ScrollView style={{ flex: 1 }}>
+        <View style={{ marginBottom: 5 }}>
+          <Carousel
+            data={freeVideos}
+            loading={loading}
+            navigation={navigation}
+          />
+        </View>
+        <View style={{ flex: 1, marginTop: 5 }}>
           <FlatList
-            numColumns={2}
-            style={styles.list}
+            // numColumns={2}
+            horizontal
+            pagingEnabled={true}
+            style={{}}
             keyExtractor={(item) => String(item.id)}
-            data={vimeoVideo}
-            renderItem={(data: ListRenderItemInfo<any>) => {
+            data={paidVideos}
+            renderItem={({ item }) => {
               return (
-                <>
-                  <View
-                    style={{
-                      width: "50%",
-                      height: 100,
-                      margin: 5,
-                    }}>
+                <View
+                  style={{
+                    width: width / 3,
+                    // height: height / 8,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}>
+                  <View>
                     <Pressable
                       style={{ flex: 1 }}
-                      onPressIn={() =>
-                        navigation.navigate("ExploreVideo", {
-                          item: data.item,
-                        })
-                      }>
+                      // onPressIn={() =>
+                      //   navigation.navigate("ExploreVideo", {
+                      //     item: item,
+                      //   })
+                      // }
+                    >
                       <Image
-                        source={{ uri: data.item.image }}
+                        source={{ uri: item.image }}
                         containerStyle={styles.image}
+                        resizeMode="contain"
                         PlaceholderContent={<ActivityIndicator />}
                       />
                     </Pressable>
                   </View>
-                </>
+                </View>
               );
             }}
           />
         </View>
-      </SafeAreaView>
+      </ScrollView>
     </View>
   );
 };
