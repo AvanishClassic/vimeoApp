@@ -29,7 +29,10 @@ const AppNavigation = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{
+        headerBackTitleVisible: false,
+        headerTintColor: 'black'
+      }}>
         <Stack.Screen
           name="ExploreScreen"
           component={TabNavigator}
