@@ -8,6 +8,10 @@
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:AvanishClassic/vimeoApp.git"
+  },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/native": "^6.1.6",
@@ -16,17 +20,19 @@
     "@rneui/base": "^4.0.0-rc.7",
     "@rneui/themed": "^4.0.0-rc.7",
     "axios": "^1.4.0",
+    "eas-cli": "^3.13.3",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-react-native": "^4.0.0",
     "expo": "~48.0.15",
     "expo-status-bar": "~1.4.4",
+    "moment": "^2.29.4",
     "react": "18.2.0",
     "react-native": "0.71.8",
     "react-native-gesture-handler": "^2.10.1",
     "react-native-safe-area-context": "^4.5.3",
     "react-native-safe-area-view": "^1.1.1",
     "react-native-screens": "^3.20.0",
-    "react-native-snap-carousel": "^4.0.0-beta.6",
+    "react-native-swiper-flatlist": "^3.2.2",
     "react-native-video": "^5.2.1",
     "react-native-vimeo-iframe": "^1.2.1",
     "react-native-webview": "^11.4.0",
@@ -37,7 +43,6 @@
     "@tsconfig/react-native": "^3.0.2",
     "@types/jest": "^29.5.1",
     "@types/react": "^18.2.7",
-    "@types/react-native-snap-carousel": "^3.8.5",
     "@types/react-native-video": "^5.0.14",
     "@types/react-redux": "^7.1.25",
     "@types/react-test-renderer": "^18.0.0",
@@ -52,6 +57,5 @@
     "eslint-plugin-react": "^7.32.2",
     "prettier": "^2.8.8",
     "typescript": "^5.0.4"
-  },
-  "private": true
+  }
 }

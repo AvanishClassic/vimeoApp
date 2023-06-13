@@ -12,18 +12,29 @@ import { ScreenContainer } from "react-native-screens";
 import { createStackNavigator } from "@react-navigation/stack";
 import TabNavigator from "./tabNavigator";
 import ExploreVideoScreen from "../domain/exploreVideo/exploreVideoScreen";
+import { useEffect } from "react";
+import { useAppDispatch } from "../store/store";
+import { getVideos } from "../domain/explore/exploreVideoReducer";
+import ExploreWebView from "../domain/exploreVideo/exploreWebView";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 const AppNavigation = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getVideos());
+  }, []);
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Explore"
+          name="ExploreScreen"
           component={TabNavigator}
           options={{
+            headerShown: false,
             headerTitleAlign: "center",
             headerStyle: {
               backgroundColor: "blue",
@@ -32,6 +43,7 @@ const AppNavigation = () => {
           }}
         />
         <Stack.Screen name="ExploreVideo" component={ExploreVideoScreen} />
+        <Stack.Screen name="ExploreWebView" component={ExploreWebView} />
       </Stack.Navigator>
     </NavigationContainer>
   );
