@@ -13,6 +13,13 @@ const ExploreVideoScreen = ({ route, navigation }: any) => {
   const { height, width } = Dimensions.get("window");
   const { loading, paidVideos } = useAppSelector((state) => state.exploreVideo);
 
+  useEffect(() => {
+    const reqVideo = paidVideos.find(
+      (v: any) => v.short_description === item.short_description
+    );
+    setRequiredVideoItems(reqVideo);
+  }, []);
+
   return (
     <View style={{ flex: 1, backgroundColor: "#282C34" }}>
       {item.is_free ? (
@@ -59,7 +66,7 @@ const ExploreVideoScreen = ({ route, navigation }: any) => {
                   : item.duration + " sec"}
                 .
               </Text>
-              <Text style={styles.image_duration_txt}>{item.description}</Text>
+              {/* <Text style={styles.image_duration_txt}>{item.description}</Text> */}
             </View>
             <View>
               <Button

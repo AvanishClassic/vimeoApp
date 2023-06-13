@@ -9,29 +9,27 @@ export const styles = StyleSheet.create({
     height: "100%",
     flex: 1,
     backgroundColor: "black",
+
+    // backgroundColor: "#202227",
   },
-  image: {
-    borderWidth: 1,
-    height: 100,
-    justifyContent: "center",
-    width: width,
-    // borderRadius: 5,
-    padding: 20,
-    resizeMode: "cover",
-    flex: 1,
-  },
+
   list: {
     width: "100%",
     paddingHorizontal: 20,
     backgroundColor: "black",
   },
-  scrollView: {
-    backgroundColor: "pink",
-    padding: 20,
-    marginHorizontal: 20,
+  loader: {
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    backgroundColor: "black",
   },
 
-  FlatListStyle: {
-    marginTop: 20,
+  shadowProp: {
+    shadowOffset: { width: -2, height: 4 },
+    shadowColor: "white",
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
   },
 });

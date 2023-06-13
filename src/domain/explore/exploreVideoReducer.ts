@@ -4,6 +4,7 @@ import { getAllVideos } from "./expore.service";
 const initialState: any = {
   loading: false,
   paidVideos: [],
+  allVideos: [],
   freeVideos: [],
 };
 
@@ -13,11 +14,18 @@ export const getVideos: any = createAsyncThunk(
     let res = await getAllVideos();
     res = res.map((item: any) => ({
       id: item.id,
-      desciption: item.description,
-      short_description: item.short_description,
+      description: item.description,
+      short_description: String(item.short_description).replace(
+        /^[\W_]+|[\W_]+$/g,
+        ""
+      ),
       title: item.title,
       is_free: item.is_free,
-      image: item.thumbnail.source,
+      image: {
+        source: item.thumbnail.source,
+        small: item.thumbnail.small,
+        medium: item.thumbnail.medium,
+      },
       video_page: item?._links.video_page?.href,
       duration: item?.duration?.seconds,
     }));
@@ -52,6 +60,7 @@ export const exploreVideoReducer = createSlice({
       // });
       state.freeVideos = payload.filter((videos: any) => videos.is_free);
       state.paidVideos = payload.filter((videos: any) => !videos.is_free);
+      state.allVideos = payload;
     });
     builder.addCase(getVideos.rejected, (state) => {
       state.loading = false;

@@ -1,4 +1,3 @@
-import { styles } from "../../domain/explore/expore.style";
 import React, { useRef, useState } from "react";
 import {
   View,
@@ -11,17 +10,18 @@ import {
 } from "react-native";
 import { SwiperFlatList } from "react-native-swiper-flatlist";
 import { Image } from "@rneui/themed";
+import { styles } from "./carousel.style";
 
-const Carousel = ({ loading, data, navigation }: any) => {
+const BannerCarousel = ({ loading, data, navigation }: any) => {
   const { width, height } = Dimensions.get("window");
   const [currentIndex, setCurrentIndex] = useState(0);
   const ref: React.MutableRefObject<any> = useRef();
 
   return (
-    <>
+    <View style={{ marginBottom: 5, position: "relative" }}>
       <SwiperFlatList
         autoplay
-        style={{ height: height * 0.3 }}
+        style={{ height: height * 0.3, width: width }}
         autoplayDelay={10}
         ref={ref}
         autoplayLoop
@@ -31,7 +31,6 @@ const Carousel = ({ loading, data, navigation }: any) => {
           const x = e.nativeEvent.contentOffset.x;
           setCurrentIndex(Number((x / width).toFixed(0)));
         }}
-        renderAll={true}
         keyExtractor={(item) => String(item.id)}
         // showPagination
         // paginationStyleItem={{ width: 10, height: 10 }}
@@ -48,18 +47,11 @@ const Carousel = ({ loading, data, navigation }: any) => {
                   })
                 }>
                 <Image
-                  source={{ uri: item.image }}
+                  source={{ uri: item.image.source }}
                   containerStyle={styles.image}
                   resizeMode="contain"
                   PlaceholderContent={
-                    <View
-                      style={{
-                        height: "100%",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        width: "100%",
-                        backgroundColor: "black",
-                      }}>
+                    <View style={styles.loader}>
                       <ActivityIndicator color={"yellow"} />
                     </View>
                   }
@@ -71,6 +63,8 @@ const Carousel = ({ loading, data, navigation }: any) => {
       />
       <View
         style={{
+          position: "absolute",
+          bottom: 0,
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
@@ -97,8 +91,8 @@ const Carousel = ({ loading, data, navigation }: any) => {
           );
         })}
       </View>
-    </>
+    </View>
   );
 };
 
-export default Carousel;
+export default BannerCarousel;

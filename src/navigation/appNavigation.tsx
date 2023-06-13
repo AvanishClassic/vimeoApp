@@ -31,9 +31,10 @@ const AppNavigation = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Explore"
+          name="ExploreScreen"
           component={TabNavigator}
           options={{
+            headerShown: false,
             headerTitleAlign: "center",
             headerStyle: {
               backgroundColor: "blue",

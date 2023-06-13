@@ -1,29 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   View,
   Text,
-  SafeAreaView,
-  Dimensions,
-  Pressable,
   ActivityIndicator,
-  FlatList,
-  ListRenderItemInfo,
   ScrollView,
   TouchableOpacity,
 } from "react-native";
 import { styles } from "./expore.style";
-import { SwiperFlatList } from "react-native-swiper-flatlist";
-import { Image } from "@rneui/themed";
-import { useAppSelector } from "../../store/store";
+import { Icon } from "@rneui/base";
+
+import { exploreVideoState, useAppSelector } from "../../store/store";
 import { Button } from "@rneui/themed";
-import Carousel from "../../components/carousel/carousel";
+import BannerCarousel from "../../components/carousel/bannerCarousel";
+import CarouselCardItem from "../../components/carousel/multiCarousel";
 
 const ExploreScreen = ({ navigation }: any) => {
-  const { loading, paidVideos, freeVideos } = useAppSelector(
-    (state) => state.exploreVideo
-  );
-
-  const { width, height } = Dimensions.get("window");
+  const { loading, paidVideos, freeVideos, allVideos } =
+    useAppSelector(exploreVideoState);
 
   const videoCallbacks = {
     timeupdate: (data: any) => console.log("timeupdate: ", data),
@@ -34,53 +27,40 @@ const ExploreScreen = ({ navigation }: any) => {
     controlschange: (data: any) => console.log("controlschange: ", data),
   };
 
+  if (loading) {
+    return (
+      <View style={styles.loader}>
+        <ActivityIndicator color={"yellow"} />
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
       <ScrollView style={{ flex: 1 }}>
-        <View style={{ marginBottom: 5 }}>
-          <Carousel
-            data={freeVideos}
-            loading={loading}
+        <BannerCarousel
+          data={freeVideos}
+          loading={loading}
+          navigation={navigation}
+        />
+        <View
+          style={{
+            backgroundColor: "#202227",
+          }}>
+          <CarouselCardItem
             navigation={navigation}
-          />
-        </View>
-        <View style={{ flex: 1, marginTop: 5 }}>
-          <FlatList
-            // numColumns={2}
-            horizontal
-            pagingEnabled={true}
-            style={{}}
-            keyExtractor={(item) => String(item.id)}
+            label="trending now"
             data={paidVideos}
-            renderItem={({ item }) => {
-              return (
-                <View
-                  style={{
-                    width: width / 3,
-                    // height: height / 8,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}>
-                  <View>
-                    <Pressable
-                      style={{ flex: 1 }}
-                      // onPressIn={() =>
-                      //   navigation.navigate("ExploreVideo", {
-                      //     item: item,
-                      //   })
-                      // }
-                    >
-                      <Image
-                        source={{ uri: item.image }}
-                        containerStyle={styles.image}
-                        resizeMode="contain"
-                        PlaceholderContent={<ActivityIndicator />}
-                      />
-                    </Pressable>
-                  </View>
-                </View>
-              );
-            }}
+          />
+          <CarouselCardItem
+            navigation={navigation}
+            label="new releases"
+            data={paidVideos}
+          />
+          <CarouselCardItem
+            navigation={navigation}
+            label="browse all"
+            data={allVideos}
           />
         </View>
       </ScrollView>

@@ -3,9 +3,17 @@ import WebView from "react-native-webview";
 
 const ExploreWebView = ({ route }: any) => {
   const { item } = route.params;
+  const customStyles = `
+  document.getElementsByClassName('mobile-header')[0].style.display = 'none';
+  document.getElementsByClassName('signup-banner')[0].style.display = 'none';
+  document.getElementsByClassName('footer')[0].style.display = 'none';
+  document.getElementsByClassName('signup-container')[0].style.marginTop = 0;
+  true; // note: this is required, or you'll sometimes get silent failures
+`;
 
   return (
     <WebView
+      injectedJavaScript={customStyles}
       source={{
         uri: item.video_page,
         headers: {
