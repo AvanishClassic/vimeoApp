@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.classic.openBarComedy"
     },
     "android": {
       "adaptiveIcon": {
@@ -31,6 +32,7 @@
       "eas": {
         "projectId": "ce413c19-da66-41a0-9183-063c663a7152"
       }
-    }
+    },
+    "owner": "avanish_par"
   }
 }
