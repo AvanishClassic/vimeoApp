@@ -25,12 +25,11 @@ export const styles = StyleSheet.create({
   },
   image: {
     // borderWidth: 1,
-    height: 100,
     justifyContent: "center",
     width: width,
     // borderRadius: 5,
+
     padding: 20,
-    resizeMode: "cover",
     flex: 1,
   },
   img_title_txt: {

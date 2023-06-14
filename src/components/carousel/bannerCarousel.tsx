@@ -21,8 +21,9 @@ const BannerCarousel = ({ loading, data, navigation }: any) => {
     <View style={{ marginBottom: 5, position: "relative" }}>
       <SwiperFlatList
         autoplay
-        style={{ height: height * 0.3, width: width }}
+        style={{ height: height * 0.4, width: width }}
         autoplayDelay={10}
+        renderAll={true}
         ref={ref}
         autoplayLoop
         showsHorizontalScrollIndicator={false}
@@ -32,8 +33,6 @@ const BannerCarousel = ({ loading, data, navigation }: any) => {
           setCurrentIndex(Number((x / width).toFixed(0)));
         }}
         keyExtractor={(item) => String(item.id)}
-        // showPagination
-        // paginationStyleItem={{ width: 10, height: 10 }}
         paginationActiveColor="yellow"
         data={data}
         renderItem={({ item, index }) => {
@@ -47,7 +46,8 @@ const BannerCarousel = ({ loading, data, navigation }: any) => {
                   })
                 }>
                 <Image
-                  source={{ uri: item.image.source }}
+                  transition={true}
+                  source={{ uri: item.image.bannerImage }}
                   containerStyle={styles.image}
                   resizeMode="contain"
                   PlaceholderContent={
@@ -64,7 +64,7 @@ const BannerCarousel = ({ loading, data, navigation }: any) => {
       <View
         style={{
           position: "absolute",
-          bottom: 0,
+          bottom: 10,
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",

@@ -12,6 +12,7 @@ export const getVideos: any = createAsyncThunk(
   "exploreVideo/getVideos",
   async (thunkAPI) => {
     let res = await getAllVideos();
+    // console.log(res[2].additional_images.aspect_ratio_16_6.source, "fdfdf");
     res = res.map((item: any) => ({
       id: item.id,
       description: item.description,
@@ -22,6 +23,7 @@ export const getVideos: any = createAsyncThunk(
       title: item.title,
       is_free: item.is_free,
       image: {
+        bannerImage: item?.additional_images?.aspect_ratio_16_14?.source,
         source: item.thumbnail.source,
         small: item.thumbnail.small,
         medium: item.thumbnail.medium,

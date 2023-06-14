@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     fontSize: 24,
   },
   image_duration_txt: {
-    color: "white",
+    color: "gray",
 
     fontSize: 16,
   },

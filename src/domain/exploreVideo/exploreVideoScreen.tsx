@@ -28,20 +28,20 @@ const ExploreVideoScreen = ({ route, navigation }: any) => {
             <WebView
               source={{
                 html: `
-            <html>
-            <head>
-            <style>
-            body {
-              background-color: black;
-              position:relative;
-            }
-            </style>
-            </head>
-            <body>
-            <iframe id="video" src="https://embed.vhx.tv/videos/${item.id}?autoplay=1&api=1" width="100%" height="820" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-            <script src="https://cdn.vhx.tv/assets/player.js"></script>
-            </body>
-          </html
+              <html>
+              <head>
+              <style>
+              body {
+                background-color: black;
+                position:relative;
+              }
+              </style>
+              </head>
+              <body>
+              <iframe id="video" src="https://embed.vhx.tv/videos/${item.id}?autoplay=1&api=1" width="100%" height="820" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+              <script src="https://cdn.vhx.tv/assets/player.js"></script>
+              </body>
+            </html
             `,
               }}
               startInLoadingState={true}
@@ -66,8 +66,10 @@ const ExploreVideoScreen = ({ route, navigation }: any) => {
                   : item.duration + " sec"}
                 .
               </Text>
-              {/* <Text style={styles.image_duration_txt}>{item.description}</Text> */}
             </View>
+            <Text style={[styles.image_duration_txt, { marginBottom: 50 }]}>
+              {item.short_description}
+            </Text>
             {requiredVideoItems && (
               <View>
                 <Button

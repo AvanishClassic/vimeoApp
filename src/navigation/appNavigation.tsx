@@ -29,24 +29,45 @@ const AppNavigation = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-        headerBackTitleVisible: false,
-        headerTintColor: 'black'
-      }}>
+      <Stack.Navigator
+        screenOptions={{
+          headerBackTitleVisible: false,
+          headerTintColor: "black",
+        }}>
         <Stack.Screen
           name="ExploreScreen"
           component={TabNavigator}
           options={{
             headerShown: false,
             headerTitleAlign: "center",
-            headerStyle: {
-              backgroundColor: "blue",
-            },
+
             headerTintColor: "#fff",
           }}
         />
-        <Stack.Screen name="ExploreVideo" component={ExploreVideoScreen} />
-        <Stack.Screen name="ExploreWebView" component={ExploreWebView} />
+        <Stack.Screen
+          options={{
+            title: "",
+            headerTitleAlign: "center",
+            headerStyle: {
+              backgroundColor: "#1e1e54",
+            },
+            headerTintColor: "#fff",
+          }}
+          name="ExploreVideo"
+          component={ExploreVideoScreen}
+        />
+        <Stack.Screen
+          options={{
+            title: "",
+            headerTitleAlign: "center",
+            headerStyle: {
+              backgroundColor: "#1e1e54",
+            },
+            headerTintColor: "#fff",
+          }}
+          name="ExploreWebView"
+          component={ExploreWebView}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

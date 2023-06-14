@@ -14,17 +14,18 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { exploreVideoState, useAppSelector } from "../../store/store";
 import moment from "moment";
 
-const Search = () => {
+const Search = ({ navigation }: any) => {
   const [searchedVideo, setSearchedVideo] = useState("");
   const { loading, allVideos } = useAppSelector(exploreVideoState);
   const { width, height } = Dimensions.get("window");
   return (
     <SafeAreaView style={styles.container}>
       <SearchBar
-        // containerStyle={{ backgroundColor: "blue" }}
-        // style={{ backgroundColor: "blue" }}
+        containerStyle={{ backgroundColor: "#1e1e54", borderBottomWidth: 0 }}
+        inputContainerStyle={{ backgroundColor: "#1e1e54" }}
+        // style={{ backgroundColor: "#1e1e54" }}
         placeholder="Search Here..."
-        lightTheme
+        lightTheme={false}
         round
         value={searchedVideo}
         onChangeText={(text) => setSearchedVideo(text)}
@@ -36,7 +37,13 @@ const Search = () => {
             videos.title.includes(searchedVideo)
           )}
           renderItem={({ item, index }) => (
-            <View style={{ justifyContent: "center", alignItems: "center" }}>
+            <Pressable
+              onPress={() =>
+                navigation.navigate("ExploreVideo", {
+                  item: item,
+                })
+              }
+              style={{ justifyContent: "center", alignItems: "center" }}>
               <ListItem
                 containerStyle={{
                   backgroundColor: "#202227",
@@ -63,7 +70,7 @@ const Search = () => {
                   </ListItem.Subtitle>
                 </ListItem.Content>
               </ListItem>
-            </View>
+            </Pressable>
           )}
         />
       ) : (
