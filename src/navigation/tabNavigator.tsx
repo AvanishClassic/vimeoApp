@@ -13,6 +13,7 @@ const TabNavigator = () => {
         headerTitleAlign: "center",
         headerStyle: {
           backgroundColor: "#1e1e54",
+
         },
         headerTintColor: "#fff",
         // headerShown: false,
@@ -47,7 +48,7 @@ const TabNavigator = () => {
           ),
         }}
         component={SearchScreen}
-        //   options={{ tabBarBadge: books?.length }}
+      //   options={{ tabBarBadge: books?.length }}
       />
       <Tab.Screen
         name="Profile"
@@ -63,7 +64,7 @@ const TabNavigator = () => {
           ),
         }}
         component={LibraryScreen}
-        //   options={{ tabBarBadge: books?.length }}
+      //   options={{ tabBarBadge: books?.length }}
       />
     </Tab.Navigator>
   );
