@@ -68,17 +68,19 @@ const ExploreVideoScreen = ({ route, navigation }: any) => {
               </Text>
               {/* <Text style={styles.image_duration_txt}>{item.description}</Text> */}
             </View>
-            <View>
-              <Button
-                onPress={() =>
-                  navigation.navigate("ExploreWebView", {
-                    item: item,
-                  })
-                }
-                style={{ backgroundColor: "pink" }}>
-                Watch Full Video
-              </Button>
-            </View>
+            {requiredVideoItems && (
+              <View>
+                <Button
+                  onPress={() =>
+                    navigation.navigate("ExploreWebView", {
+                      item: requiredVideoItems,
+                    })
+                  }
+                  style={{ backgroundColor: "pink" }}>
+                  Watch Full Video
+                </Button>
+              </View>
+            )}
           </View>
         </SafeAreaView>
       ) : (

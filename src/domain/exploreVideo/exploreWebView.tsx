@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
 import WebView from "react-native-webview";
 
-const ExploreWebView = ({ route }: any) => {
-  const { item } = route.params;
+const ExploreWebView = ({ route, isProfile = false }: any) => {
+  const { item } = !isProfile
+    ? route?.params
+    : { item: { video_page: "https://funny.openbarcomedy.com" } };
+
   const customStyles = `
   document.getElementsByClassName('mobile-header')[0].style.display = 'none';
   document.getElementsByClassName('signup-banner')[0].style.display = 'none';
   document.getElementsByClassName('footer')[0].style.display = 'none';
   document.getElementsByClassName('signup-container')[0].style.marginTop = 0;
-  true; // note: this is required, or you'll sometimes get silent failures
 `;
 
   return (
