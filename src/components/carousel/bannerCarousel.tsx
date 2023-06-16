@@ -11,6 +11,7 @@ import {
 import { SwiperFlatList } from "react-native-swiper-flatlist";
 import { Image } from "@rneui/themed";
 import { styles } from "./carousel.style";
+import { VideoResponse } from "domain/explore/explore.type";
 
 const BannerCarousel = ({ loading, data, navigation }: any) => {
   const { width, height } = Dimensions.get("window");
@@ -21,7 +22,7 @@ const BannerCarousel = ({ loading, data, navigation }: any) => {
     <View style={{ marginBottom: 5, position: "relative" }}>
       <SwiperFlatList
         autoplay
-        style={{ height: height * 0.4, width: width }}
+        style={{ height: height * 0.415, width: width }}
         autoplayDelay={10}
         renderAll={true}
         ref={ref}
@@ -70,7 +71,7 @@ const BannerCarousel = ({ loading, data, navigation }: any) => {
           alignItems: "center",
           width: width,
         }}>
-        {data.map((item: any, index: any) => {
+        {data.map((item: VideoResponse, index: any) => {
           return (
             <TouchableOpacity
               onPress={() => {

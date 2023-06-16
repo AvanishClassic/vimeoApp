@@ -11,8 +11,7 @@ export const getAllVideos = async () => {
       },
     });
     return response.data._embedded.videos.filter(
-      (i: any) =>
-        i.status === "complete" && i.additional_images?.aspect_ratio_16_14
+      (i: any) => i.status === "complete"
     );
   } catch (error) {
     console.log(error);

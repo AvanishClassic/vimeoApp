@@ -15,9 +15,16 @@ import BannerCarousel from "../../components/carousel/bannerCarousel";
 import CarouselCardItem from "../../components/carousel/multiCarousel";
 
 const ExploreScreen = ({ navigation }: any) => {
-  const { loading, paidVideos, freeVideos, allVideos } =
-    useAppSelector(exploreVideoState);
-
+  const {
+    loading,
+    paidVideos,
+    freeVideos,
+    allVideos,
+    newReleases,
+    politicalStoryTelling,
+    viratHits,
+    observationalComedy,
+  } = useAppSelector(exploreVideoState);
   const videoCallbacks = {
     timeupdate: (data: any) => console.log("timeupdate: ", data),
     play: (data: any) => console.log("play: ", data),
@@ -45,22 +52,32 @@ const ExploreScreen = ({ navigation }: any) => {
         />
         <View
           style={{
-            backgroundColor: "#202227",
+            backgroundColor: "black",
           }}>
           <CarouselCardItem
             navigation={navigation}
-            label="trending now"
-            data={paidVideos}
+            label="new releases"
+            data={newReleases}
           />
           <CarouselCardItem
             navigation={navigation}
-            label="new releases"
-            data={paidVideos}
+            label="viral hits"
+            data={viratHits}
+          />
+          <CarouselCardItem
+            navigation={navigation}
+            label="observational comedy"
+            data={observationalComedy}
+          />
+          <CarouselCardItem
+            navigation={navigation}
+            label="politicalStory telling"
+            data={politicalStoryTelling}
           />
           <CarouselCardItem
             navigation={navigation}
             label="browse all"
-            data={allVideos}
+            data={paidVideos}
           />
         </View>
       </ScrollView>

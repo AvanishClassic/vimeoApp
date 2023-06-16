@@ -13,11 +13,11 @@ export const styles = StyleSheet.create({
     // backgroundColor: "#202227",
   },
 
-  list: {
-    width: "100%",
-    paddingHorizontal: 20,
-    backgroundColor: "black",
-  },
+  // list: {
+  //   width: "100%",
+  //   paddingHorizontal: 20,
+  //   backgroundColor: "black",
+  // },
   loader: {
     height: "100%",
     alignItems: "center",
@@ -26,10 +26,11 @@ export const styles = StyleSheet.create({
     backgroundColor: "black",
   },
 
-  shadowProp: {
-    shadowOffset: { width: -2, height: 4 },
-    shadowColor: "white",
-    shadowOpacity: 0.2,
+  imgProp: {
+    borderRadius: 10,
+    shadowOpacity: 10,
+    borderWidth: 1,
+    borderColor: "#282828",
     shadowRadius: 10,
   },
 });

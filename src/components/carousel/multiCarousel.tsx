@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   FlatList,
+  Pressable,
 } from "react-native";
 import { Icon, Image } from "@rneui/themed";
 import { styles } from "./carousel.style";
@@ -19,11 +20,18 @@ const CarouselCardItem = ({ data, index, label, navigation }: any) => {
     <View
       style={{
         flex: 1,
-        padding: 10,
-        marginTop: 2,
-        // borderBottomWidth: 1,
+        paddingLeft: 20,
+        paddingVertical: 5,
+        marginTop: 10,
       }}>
-      <View style={styles.video_item_label}>
+      <Pressable
+        onPressOut={() =>
+          navigation.navigate("ExploreCollectionDetail", {
+            item: data,
+            title: titleCase(label),
+          })
+        }
+        style={styles.video_item_label}>
         <Text style={{ color: "white", fontSize: 16, marginRight: 4 }}>
           {titleCase(label)}
         </Text>
@@ -35,7 +43,7 @@ const CarouselCardItem = ({ data, index, label, navigation }: any) => {
             color="#517fa4"
           />
         </View>
-      </View>
+      </Pressable>
       <FlatList
         ref={ref}
         showsHorizontalScrollIndicator={false}
@@ -81,7 +89,7 @@ const CarouselCardItem = ({ data, index, label, navigation }: any) => {
                           { height: 100, width: width / 2 - 40 },
                         ]}
                       />
-                      <View style={{ marginTop: 5 }}>
+                      <View style={{ marginTop: 5, paddingRight: 5 }}>
                         <Text numberOfLines={1} style={styles.img_title_txt}>
                           {item.title}
                         </Text>

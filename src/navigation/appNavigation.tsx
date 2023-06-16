@@ -5,17 +5,21 @@ import { Icon } from "@rneui/themed";
 
 import { View } from "react-native";
 import ExploreScreen from "../domain/explore/exploreScreen";
-import LibraryScreen from "../domain/library/libraryScreen";
+import LibraryScreen from "../domain/home/homeScreen";
 import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 
 import { ScreenContainer } from "react-native-screens";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+} from "@react-navigation/stack";
 import TabNavigator from "./tabNavigator";
 import ExploreVideoScreen from "../domain/exploreVideo/exploreVideoScreen";
 import { useEffect } from "react";
 import { useAppDispatch } from "../store/store";
 import { getVideos } from "../domain/explore/exploreVideoReducer";
 import ExploreWebView from "../domain/exploreVideo/exploreWebView";
+import ExploreCollectionDetail from "../domain/exploreCollectionDetail/exploreCollectionDetail";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -31,6 +35,7 @@ const AppNavigation = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
+          cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
           headerBackTitleVisible: false,
           headerTintColor: "black",
         }}>
@@ -49,7 +54,7 @@ const AppNavigation = () => {
             title: "",
             headerTitleAlign: "center",
             headerStyle: {
-              backgroundColor: "#1e1e54",
+              backgroundColor: "#1B213B",
             },
             headerTintColor: "#fff",
           }}
@@ -61,12 +66,24 @@ const AppNavigation = () => {
             title: "",
             headerTitleAlign: "center",
             headerStyle: {
-              backgroundColor: "#1e1e54",
+              backgroundColor: "#1B213B",
             },
             headerTintColor: "#fff",
           }}
           name="ExploreWebView"
           component={ExploreWebView}
+        />
+        <Stack.Screen
+          options={{
+            title: "",
+            headerTitleAlign: "center",
+            headerStyle: {
+              backgroundColor: "#1B213B",
+            },
+            headerTintColor: "#fff",
+          }}
+          name="ExploreCollectionDetail"
+          component={ExploreCollectionDetail}
         />
       </Stack.Navigator>
     </NavigationContainer>

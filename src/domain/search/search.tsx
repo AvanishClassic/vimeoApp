@@ -16,15 +16,14 @@ import moment from "moment";
 
 const Search = ({ navigation }: any) => {
   const [searchedVideo, setSearchedVideo] = useState("");
-  const { loading, allVideos } = useAppSelector(exploreVideoState);
+  const { loading, paidVideos } = useAppSelector(exploreVideoState);
   const { width, height } = Dimensions.get("window");
   return (
     <SafeAreaView style={styles.container}>
       <SearchBar
-        containerStyle={{ backgroundColor: "#1e1e54", borderBottomWidth: 0 }}
-        inputContainerStyle={{ backgroundColor: "#1e1e54" }}
-        // style={{ backgroundColor: "#1e1e54" }}
-        placeholder="Search Here..."
+        containerStyle={{ backgroundColor: "#1B213B", borderBottomWidth: 0 }}
+        inputContainerStyle={{ backgroundColor: "#1B213B" }}
+        placeholder="Search Comedians Name..."
         lightTheme={false}
         round
         value={searchedVideo}
@@ -33,8 +32,8 @@ const Search = ({ navigation }: any) => {
       />
       {searchedVideo ? (
         <FlatList
-          data={allVideos.filter((videos: any) =>
-            videos.title.includes(searchedVideo)
+          data={paidVideos.filter((videos: any) =>
+            videos.name.includes(searchedVideo)
           )}
           renderItem={({ item, index }) => (
             <Pressable

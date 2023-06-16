@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon } from "@rneui/base";
 import ExploreScreen from "../domain/explore/exploreScreen";
-import LibraryScreen from "../domain/library/libraryScreen";
+import HomeScreen from "../domain/home/homeScreen";
 import * as React from "react";
 import SearchScreen from "../domain/search/search";
 
@@ -10,26 +10,42 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
+        tabBarActiveTintColor: "white",
+        tabBarInactiveTintColor: "gray",
+        tabBarStyle: { backgroundColor: "#1B213B" },
         headerTitleAlign: "center",
         headerStyle: {
-          backgroundColor: "#1e1e54",
+          backgroundColor: "#1B213B",
+          // backgroundColor: "black",
         },
         headerTintColor: "#fff",
-        // headerShown: false,
       }}>
+      <Tab.Screen
+        name="Home"
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Icon
+              size={20}
+              name="home"
+              type="ionicon"
+              color={focused ? "white" : "gray"}
+            />
+          ),
+        }}
+        component={HomeScreen}
+      />
       <Tab.Screen
         options={{
           tabBarIcon: ({ focused }) => (
             <Icon
-              size={10}
-              reverse
-              name="ios-american-football"
+              size={20}
+              color={focused ? "white" : "gray"}
+              name="apps"
               type="ionicon"
-              color="#517fa4"
             />
           ),
         }}
-        name="Explore"
+        name="Browse"
         component={ExploreScreen}
       />
       <Tab.Screen
@@ -38,32 +54,14 @@ const TabNavigator = () => {
           headerShown: false,
           tabBarIcon: ({ focused }) => (
             <Icon
-              size={10}
-              reverse
+              size={20}
               name="search-outline"
               type="ionicon"
-              color="#517fa4"
+              color={focused ? "white" : "gray"}
             />
           ),
         }}
         component={SearchScreen}
-        //   options={{ tabBarBadge: books?.length }}
-      />
-      <Tab.Screen
-        name="Profile"
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Icon
-              size={10}
-              reverse
-              name="person-circle-outline"
-              type="ionicon"
-              color="#517fa4"
-            />
-          ),
-        }}
-        component={LibraryScreen}
-        //   options={{ tabBarBadge: books?.length }}
       />
     </Tab.Navigator>
   );

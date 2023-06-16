@@ -1,6 +1,13 @@
 import { Button } from "@rneui/base";
 import React, { useEffect, useState } from "react";
-import { View, Text, Dimensions, Linking, SafeAreaView } from "react-native";
+import {
+  View,
+  Text,
+  Dimensions,
+  Linking,
+  SafeAreaView,
+  ActivityIndicator,
+} from "react-native";
 import { Vimeo } from "react-native-vimeo-iframe";
 import WebView from "react-native-webview";
 import { styles } from "./exploreVideo.style";
@@ -14,7 +21,7 @@ const ExploreVideoScreen = ({ route, navigation }: any) => {
   const { loading, paidVideos } = useAppSelector((state) => state.exploreVideo);
 
   useEffect(() => {
-    const reqVideo = paidVideos.find(
+    const reqVideo: any = paidVideos.find(
       (v: any) => v.short_description === item.short_description
     );
     setRequiredVideoItems(reqVideo);
@@ -24,8 +31,20 @@ const ExploreVideoScreen = ({ route, navigation }: any) => {
     <View style={{ flex: 1, backgroundColor: "#282C34" }}>
       {item.is_free ? (
         <SafeAreaView style={{ flex: 1 }}>
-          <View style={{ flex: 1, height: height * 0.4 }}>
+          <View style={{ flex: 1, height: height }}>
             <WebView
+              renderLoading={() => (
+                <View
+                  style={{
+                    backgroundColor: "black",
+                    height: "100%",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "100%",
+                  }}>
+                  <ActivityIndicator color="yellow" size="large" />
+                </View>
+              )}
               source={{
                 html: `
               <html>
@@ -38,7 +57,7 @@ const ExploreVideoScreen = ({ route, navigation }: any) => {
               </style>
               </head>
               <body>
-              <iframe id="video" src="https://embed.vhx.tv/videos/${item.id}?autoplay=1&api=1" width="100%" height="820" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+              <iframe id="video" src="https://embed.vhx.tv/videos/${item.id}?autoplay=1&api=1" width="100%" height=820 frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
               <script src="https://cdn.vhx.tv/assets/player.js"></script>
               </body>
             </html

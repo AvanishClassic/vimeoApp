@@ -7,10 +7,11 @@ const ExploreWebView = ({ route, isProfile = false }: any) => {
     : { item: { video_page: "https://funny.openbarcomedy.com" } };
 
   const customStyles = `
-  document.getElementsByClassName('mobile-header')[0].style.display = 'none';
-  document.getElementsByClassName('signup-banner')[0].style.display = 'none';
+  document.getElementsByClassName('footer--site')[0].style.display = 'none';
+  document.getElementsByClassName('site-header')[0].style.display = 'none';
   document.getElementsByClassName('footer')[0].style.display = 'none';
   document.getElementsByClassName('signup-container')[0].style.marginTop = 0;
+  true;
 `;
 
   return (
