@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import WebView from "react-native-webview";
 
 const ExploreWebView = ({ route, isProfile = false }: any) => {
@@ -8,7 +8,7 @@ const ExploreWebView = ({ route, isProfile = false }: any) => {
 
   const customStyles = `
   document.getElementsByClassName('footer--site')[0].style.display = 'none';
-  document.getElementsByClassName('site-header')[0].style.display = 'none';
+  // document.getElementsByClassName('site-header')[0].style.display = 'none';
   document.getElementsByClassName('footer')[0].style.display = 'none';
   document.getElementsByClassName('signup-container')[0].style.marginTop = 0;
   true;

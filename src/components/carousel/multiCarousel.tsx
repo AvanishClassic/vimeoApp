@@ -71,7 +71,7 @@ const CarouselCardItem = ({ data, index, label, navigation }: any) => {
                   <View style={{ display: "flex", flexDirection: "row" }}>
                     <View style={{ display: "flex", flexDirection: "column" }}>
                       <Image
-                        source={{ uri: item?.image.source }}
+                        source={{ uri: item?.image.small }}
                         onPress={() =>
                           navigation.navigate("ExploreWebView", {
                             item: item,

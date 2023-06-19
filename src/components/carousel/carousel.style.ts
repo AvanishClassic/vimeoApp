@@ -4,13 +4,13 @@ const { width } = Dimensions.get("window");
 
 export const styles = StyleSheet.create({
   shadowProp: {
-    shadowOffset: { width: -2, height: 4 },
-    shadowColor: "white",
+    // shadowOffset: { width: -2, height: 4 },
+    // shadowColor: "white",
     borderRadius: 10,
     borderWidth: 1,
     borderColor: "#282828",
     shadowOpacity: 10,
-    shadowRadius: 10,
+    // shadowRadius: 10,
   },
   video_item_label: {
     display: "flex",

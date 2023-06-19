@@ -54,26 +54,34 @@ const ExploreScreen = ({ navigation }: any) => {
           style={{
             backgroundColor: "black",
           }}>
-          <CarouselCardItem
-            navigation={navigation}
-            label="new releases"
-            data={newReleases}
-          />
-          <CarouselCardItem
-            navigation={navigation}
-            label="viral hits"
-            data={viratHits}
-          />
-          <CarouselCardItem
-            navigation={navigation}
-            label="observational comedy"
-            data={observationalComedy}
-          />
-          <CarouselCardItem
-            navigation={navigation}
-            label="politicalStory telling"
-            data={politicalStoryTelling}
-          />
+          {newReleases.length && (
+            <CarouselCardItem
+              navigation={navigation}
+              label="new releases"
+              data={newReleases}
+            />
+          )}
+          {viratHits.length && (
+            <CarouselCardItem
+              navigation={navigation}
+              label="viral hits"
+              data={viratHits}
+            />
+          )}
+          {observationalComedy.length && (
+            <CarouselCardItem
+              navigation={navigation}
+              label="observational comedy"
+              data={observationalComedy}
+            />
+          )}
+          {politicalStoryTelling.length && (
+            <CarouselCardItem
+              navigation={navigation}
+              label="politicalStory telling"
+              data={politicalStoryTelling}
+            />
+          )}
           <CarouselCardItem
             navigation={navigation}
             label="browse all"
