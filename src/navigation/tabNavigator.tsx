@@ -10,6 +10,7 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
+        unmountOnBlur: true,
         tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "gray",
         tabBarStyle: { backgroundColor: "#1B213B" },
