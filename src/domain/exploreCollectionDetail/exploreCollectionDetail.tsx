@@ -49,7 +49,7 @@ const ExploreCollectionDetail = ({ navigation, route }: any) => {
                   <View style={{ display: "flex" }}>
                     <Image
                       source={{ uri: item?.image.source }}
-                      onPress={() =>
+                      onPressOut={() =>
                         navigation.navigate("ExploreWebView", {
                           item: item,
                         })

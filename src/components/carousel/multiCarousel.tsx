@@ -24,7 +24,7 @@ const CarouselCardItem = ({ data, index, label, navigation }: any) => {
         paddingVertical: 5,
         marginTop: 10,
       }}>
-      <Pressable
+      <TouchableOpacity
         onPressOut={() =>
           navigation.navigate("ExploreCollectionDetail", {
             item: data,
@@ -43,7 +43,7 @@ const CarouselCardItem = ({ data, index, label, navigation }: any) => {
             color="#517fa4"
           />
         </View>
-      </Pressable>
+      </TouchableOpacity>
       <FlatList
         ref={ref}
         showsHorizontalScrollIndicator={false}
@@ -71,8 +71,8 @@ const CarouselCardItem = ({ data, index, label, navigation }: any) => {
                   <View style={{ display: "flex", flexDirection: "row" }}>
                     <View style={{ display: "flex", flexDirection: "column" }}>
                       <Image
-                        source={{ uri: item?.image.source }}
-                        onPress={() =>
+                        source={{ uri: item?.image.small }}
+                        onPressOut={() =>
                           navigation.navigate("ExploreWebView", {
                             item: item,
                           })
