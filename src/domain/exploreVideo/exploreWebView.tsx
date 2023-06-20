@@ -1,3 +1,5 @@
+
+import { View, ActivityIndicator } from "react-native";
 import React, { useEffect, useState } from "react";
 import WebView from "react-native-webview";
 
@@ -24,6 +26,19 @@ const ExploreWebView = ({ route, isProfile = false }: any) => {
           password: "Boozee10!",
         },
       }}
+      renderLoading={() => (
+        <View
+          style={{
+            backgroundColor: "black",
+            height: "100%",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+          }}>
+          <ActivityIndicator color="yellow" size="large" />
+        </View>
+      )}
+      mediaPlaybackRequiresUserAction={true}
       mixedContentMode="compatibility"
       onShouldStartLoadWithRequest={() => true}
       javaScriptEnabled={true}

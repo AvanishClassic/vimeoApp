@@ -13,10 +13,11 @@ const TabNavigator = () => {
         unmountOnBlur: true,
         tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "gray",
-        tabBarStyle: { backgroundColor: "#1B213B" },
+        tabBarStyle: { backgroundColor: "#1B213B", borderTopWidth: 0 },
         headerTitleAlign: "center",
         headerStyle: {
           backgroundColor: "#1B213B",
+
           // backgroundColor: "black",
         },
         headerTintColor: "#fff",

@@ -45,6 +45,7 @@ const ExploreVideoScreen = ({ route, navigation }: any) => {
                   <ActivityIndicator color="yellow" size="large" />
                 </View>
               )}
+              mediaPlaybackRequiresUserAction={true}
               source={{
                 html: `
               <html>
@@ -79,9 +80,9 @@ const ExploreVideoScreen = ({ route, navigation }: any) => {
               <Text style={styles.image_duration_txt}>
                 {item.duration >= 60
                   ? moment
-                      .duration(item.duration, "seconds")
-                      .asMinutes()
-                      .toFixed(2) + " min"
+                    .duration(item.duration, "seconds")
+                    .asMinutes()
+                    .toFixed(2) + " min"
                   : item.duration + " sec"}
                 .
               </Text>
@@ -113,6 +114,7 @@ const ExploreVideoScreen = ({ route, navigation }: any) => {
               password: "Boozee10!",
             },
           }}
+          mediaPlaybackRequiresUserAction={true}
           mixedContentMode="compatibility"
           onShouldStartLoadWithRequest={() => true}
           javaScriptEnabled={true}

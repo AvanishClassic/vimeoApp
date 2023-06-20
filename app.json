@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "awesomeproject",
+    "name": "Open Bar Comedy",
     "slug": "AwesomeProject",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -11,12 +11,10 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.classic.openBarComedy"
+      "bundleIdentifier": "app.openbarcomedy.ios"
     },
     "android": {
       "adaptiveIcon": {
