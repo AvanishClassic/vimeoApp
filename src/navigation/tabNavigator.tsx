@@ -10,7 +10,6 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        unmountOnBlur: true,
         tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "gray",
         tabBarStyle: { backgroundColor: "#1B213B", borderTopWidth: 0 },
@@ -25,6 +24,7 @@ const TabNavigator = () => {
       <Tab.Screen
         name="Home"
         options={{
+          unmountOnBlur: true,
           tabBarIcon: ({ focused }) => (
             <Icon
               size={20}

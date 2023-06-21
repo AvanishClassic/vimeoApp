@@ -25,7 +25,7 @@ const CarouselCardItem = ({ data, index, label, navigation }: any) => {
         marginTop: 10,
       }}>
       <TouchableOpacity
-        onPressOut={() =>
+        onPress={() =>
           navigation.navigate("ExploreCollectionDetail", {
             item: data,
             title: titleCase(label),
@@ -72,7 +72,7 @@ const CarouselCardItem = ({ data, index, label, navigation }: any) => {
                     <View style={{ display: "flex", flexDirection: "column" }}>
                       <Image
                         source={{ uri: item?.image.small }}
-                        onPressOut={() =>
+                        onPress={() =>
                           navigation.navigate("ExploreWebView", {
                             item: item,
                           })

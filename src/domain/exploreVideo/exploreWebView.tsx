@@ -1,6 +1,5 @@
-
 import { View, ActivityIndicator } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import WebView from "react-native-webview";
 
 const ExploreWebView = ({ route, isProfile = false }: any) => {
@@ -39,6 +38,9 @@ const ExploreWebView = ({ route, isProfile = false }: any) => {
         </View>
       )}
       mediaPlaybackRequiresUserAction={true}
+      domStorageEnabled={true}
+      setSupportMultipleWindows={true}
+      originWhitelist={["*"]}
       mixedContentMode="compatibility"
       onShouldStartLoadWithRequest={() => true}
       javaScriptEnabled={true}
