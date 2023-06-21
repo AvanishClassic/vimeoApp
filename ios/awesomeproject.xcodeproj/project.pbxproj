@@ -332,10 +332,10 @@
 					"FB_SONARKIT_ENABLED=1",
 				);
 				INFOPLIST_FILE = awesomeproject/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Open Bar Comedy";
+				INFOPLIST_KEY_CFBundleDisplayName = OpenBarComedy;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -361,10 +361,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RET3MR6DBJ;
 				INFOPLIST_FILE = awesomeproject/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Open Bar Comedy";
+				INFOPLIST_KEY_CFBundleDisplayName = OpenBarComedy;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

@@ -1,21 +1,23 @@
 {
-  "images": [
+  "images" : [
     {
-      "idiom": "universal",
-      "filename": "image.png",
-      "scale": "1x"
+      "filename" : "8B67B883-593A-423A-B82A-7A2FDD4E3A0E-3.png",
+      "idiom" : "universal",
+      "scale" : "1x"
     },
     {
-      "idiom": "universal",
-      "scale": "2x"
+      "filename" : "8B67B883-593A-423A-B82A-7A2FDD4E3A0E-3@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
     },
     {
-      "idiom": "universal",
-      "scale": "3x"
+      "filename" : "8B67B883-593A-423A-B82A-7A2FDD4E3A0E-3@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
-  "info": {
-    "version": 1,
-    "author": "expo"
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
   }
 }

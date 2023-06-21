@@ -4,11 +4,10 @@ import {
   View,
   Text,
   Dimensions,
-  Linking,
   SafeAreaView,
   ActivityIndicator,
 } from "react-native";
-import { Vimeo } from "react-native-vimeo-iframe";
+
 import WebView from "react-native-webview";
 import { styles } from "./exploreVideo.style";
 import moment from "moment";
