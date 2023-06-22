@@ -4,6 +4,7 @@ import SafeAreaView from "react-native-safe-area-view";
 import { Provider } from "react-redux";
 import { Button, lightColors, createTheme, ThemeProvider } from "@rneui/themed";
 import { theme } from "./src/utils/theme";
+import * as SplashScreen from "expo-splash-screen";
 import AppNavigation from "./src/navigation/appNavigation";
 import { store } from "./src/store/store";
 import { useEffect } from "react";

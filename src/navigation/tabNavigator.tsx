@@ -24,7 +24,6 @@ const TabNavigator = () => {
       <Tab.Screen
         name="Home"
         options={{
-          unmountOnBlur: true,
           tabBarIcon: ({ focused }) => (
             <Icon
               size={20}

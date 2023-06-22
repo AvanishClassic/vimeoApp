@@ -20,7 +20,7 @@ import { useAppDispatch } from "../store/store";
 import { getVideos } from "../domain/explore/exploreVideoReducer";
 import ExploreWebView from "../domain/exploreVideo/exploreWebView";
 import ExploreCollectionDetail from "../domain/exploreCollectionDetail/exploreCollectionDetail";
-import * as SplashScreen from 'expo-splash-screen'
+import * as SplashScreen from "expo-splash-screen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -30,7 +30,7 @@ const AppNavigation = () => {
 
   useEffect(() => {
     dispatch(getVideos());
-    SplashScreen.hideAsync()
+    SplashScreen.hideAsync();
   }, []);
 
   return (
