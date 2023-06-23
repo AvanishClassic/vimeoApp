@@ -28,9 +28,14 @@ const Stack = createStackNavigator();
 const AppNavigation = () => {
   const dispatch = useAppDispatch();
 
+  const handleSplashScreen = async () => {
+    SplashScreen.preventAutoHideAsync();
+    setTimeout(SplashScreen.hideAsync, 5000);
+  };
+
   useEffect(() => {
     dispatch(getVideos());
-    SplashScreen.hideAsync();
+    handleSplashScreen();
   }, []);
 
   return (
