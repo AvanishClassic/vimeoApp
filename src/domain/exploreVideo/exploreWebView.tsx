@@ -17,10 +17,9 @@ const ExploreWebView = ({ navigation, route, isProfile = false }: any) => {
     : { item: { video_page: "https://funny.openbarcomedy.com" } };
 
   const customStyles = `
-  document.getElementsByClassName('footer--site')[0].style.display = 'none';
-  document.getElementsByClassName('site-header')[0].style.display = 'none';
-  document.getElementsByClassName('footer')[0].style.display = 'none';
-  document.getElementsByClassName('signup-container')[0].style.marginTop = 0;
+  document.getElementsByClassName('footer--site')[0].style.display = 'none!important';
+  document.getElementsByClassName('site-header')[0].style.display = 'none!important';
+  document.getElementsByClassName('footer')[0].style.display = 'none!important';
   true;
 `;
   const onNavigationStateChange = (navState: any) => {
