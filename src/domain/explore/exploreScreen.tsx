@@ -78,7 +78,7 @@ const ExploreScreen = ({ navigation }: any) => {
           {politicalStoryTelling.length && (
             <CarouselCardItem
               navigation={navigation}
-              label="politicalStory telling"
+              label="political story telling"
               data={politicalStoryTelling}
             />
           )}
